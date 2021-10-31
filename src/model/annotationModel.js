@@ -2,12 +2,13 @@ const connection = require('./connection');
 const { ObjectId } = require('mongodb');
 
 const read = async (data) => connection()
-  .then((db) => db.collection('Annotation').find().toArray())
-  .then((result) => ({ Annotation: result }));
+  .then((db) => db.collection('Annotation').find().toArray()).then((result) => ({ Annotation: result }));
 
 const create = async (data) => {
   const { title, employee, notes, priority } = data;
+
   const annotationConnection = await connection().then((db) => db.collection('Annotation'));
+
   const result = await annotationConnection.insertOne({ title, employee, notes, priority });
   
   const { insertedId } = result;
