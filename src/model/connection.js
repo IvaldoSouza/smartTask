@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const { MongoClient } = require('mongodb');
 
-const MONGO_DB_URL = 'mongodb://localhost:27017/Annotations';
-const DB_NAME = 'Annotations';
+const MONGO_DB_URL = 'mongodb://localhost:27017/SmartTask';
+const DB_NAME = 'SmartTask';
 
 const OPTIONS = {
   useNewUrlParser: true,
@@ -12,7 +12,7 @@ let db = null;
 
 const connection = () => (db
     ? Promise.resolve(db)
-    : mongoose.connect(MONGO_DB_URL, OPTIONS)
+    : MongoClient.connect(MONGO_DB_URL, OPTIONS)
     .then((conn) => {
       db = conn.db(DB_NAME);
       return db;
