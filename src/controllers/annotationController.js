@@ -26,10 +26,12 @@ const create = async (req, res, next) => {
     const { id } = req.params;
   
     const response = await Service.deleteAnnotation(id);
-  
-    if (!response) return next({ details: [{ message: 'Wrong id format' }] });
 
-    res.status(200).json(response);
+    console.log('controller', response)
+  
+    if (!response) return next({ details: [{ message: 'Wrong or invalid annotation id' }] });
+
+    return res.status(200).json(response);
   };
 
   module.exports = {
