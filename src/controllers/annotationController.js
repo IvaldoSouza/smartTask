@@ -1,0 +1,1 @@
+const Annotations = require('./models')
