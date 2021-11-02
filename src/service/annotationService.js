@@ -1,7 +1,7 @@
 const Model = require('../model/annotationModel');
 
-const read = async (data) => {
-  const result = await Model.read(data);
+const read = async () => {
+  const result = await Model.read();
   
   return result;
 };

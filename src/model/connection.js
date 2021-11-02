@@ -1,3 +1,18 @@
+// const mongoose = require('mongoose');
+
+// const MONGO_DB_URL = 'mongodb+srv://usuario:<usuario>@cluster0.gmwel.mongodb.net/annotations?retryWrites=true&w=majority';
+
+// const OPTIONS = {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// };
+
+// const connection = mongoose.connect(MONGO_DB_URL, OPTIONS);
+
+
+// module.exports = connection;
+
+
 const { MongoClient } = require('mongodb');
 
 const MONGO_DB_URL = 'mongodb://localhost:27017/SmartTask';

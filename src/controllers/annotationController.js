@@ -1,9 +1,10 @@
 const Service = require('../service/annotationService');
 
 const read = async (req, res) => {
-  const data = req.body;
+  
+  const response = await Service.read();
 
-  const response = await Service.read(data);
+   console.log('xablau', response);
 
   if (!response) return { details: [{ message: 'Wrong annotation ID or invalid' }] };
     return res.status(200).json(response);

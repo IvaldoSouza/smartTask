@@ -1,9 +1,10 @@
 const connection = require('./connection');
 const { ObjectId } = require('mongodb');
 
-const read = async (data) => connection()
+
+const read = async () => connection()
   .then((db) => db.collection('Annotation').find().toArray())
-  .then((result) => ({ Annotation: result }));
+  .then((result) => ({ Annotation: result })); 
 
 const create = async (data) => {
   const { title, employee, notes, priority } = data;
